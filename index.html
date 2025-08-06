@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андрей Молчановский | Скульптор</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #ffffff;
+            --accent: #CD7F32; /* бронза */
+            --accent-light: #3BAEAB; /* патина */
+            --light-gray: #f5f5f5;
+            --gray: #e0e0e0;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            background-color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--secondary);
+            text-decoration: none;
+            border: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1525874684015-58379d421a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--secondary);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.5rem;
+            margin: 30px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .hero-quote:before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -20px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* Portfolio Section */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 30px;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent);
+            color: var(--secondary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: var(--secondary);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        /* Studio Section */
+        .studio {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* Exhibitions */
+        .exhibitions {
+            background-color: var(--light-gray);
+        }
+
+        .exhibitions-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: calc(50% - 40px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: calc(50% + 40px);
+        }
+
+        .timeline-content {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -110px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -110px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Carousel */
+        .swiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .swiper-slide {
+            position: relative;
+        }
+
+        .swiper-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px;
+            color: var(--secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 0;
+                top: -40px;
+            }
+            
+            .timeline-line {
+                left: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background-color: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-quote {
+                font-size: 1.2rem;
+            }
+            
+            .process-step {
+                flex: 0 0 calc(50% - 20px);
+                margin-bottom: 20px;
+            }
+            
+            .swiper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .hero p {
+                margin: 0 auto 30px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Молчановский</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О скульпторе</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#studio">Студия</a></li>
+                <li><a href="#exhibitions">Выставки</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Андрей Молчановский<br>Современная скульптура</h1>
+                <p>Творчество на стыке традиций и инноваций в скульптуре. Работы в бронзе, стекле и камне.</p>
+                <div class="hero-quote">"Камень стекла — дом для света"</div>
+                <a href="#portfolio" class="btn">Посмотреть работы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О скульпторе</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://nedelya40.ru/wp-content/uploads/2022/10/1665054763361.jpg" alt="Андрей Молчановский">
+                </div>
+                <div class="about-text">
+                    <h3>Биография и философия</h3>
+                    <p>Андрей Молчановский - современный российский скульптор, член-корреспондент Российской академии художеств. Родился в 1972 году. Окончил Одесское художественное училище им. М.Б. Грекова и Санкт-Петербургскую государственную художественно-промышленную академию им. А.Л. Штиглица.</p>
+                    <p>Работает в широком спектре материалов: от традиционной бронзы и камня до инновационных форм оптического стекла. Его работы находятся в коллекциях Третьяковской галереи, Русского музея и частных собраниях по всему миру.</p>
+                    <p>Философия творчества Андрея основана на поиске баланса между формой и содержанием, материей и светом. Каждая работа - это диалог материала с пространством и зрителем.</p>
+                    <div class="awards">
+                        <h4>Награды и достижения:</h4>
+                        <ul>
+                            <li>Серебряная медаль Российской академии художеств (2012)</li>
+                            <li>Лауреат премии "Инновация" в номинации "Произведение визуального искусства" (2015)</li>
+                            <li>Участник Венецианской биеннале (2017)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Портфолио</h2>
+            
+            <!-- Carousel -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://molchanovsky.info/wp-content/uploads/2024/07/15.-progulka-po-chernomu-moryu-500x336.jpg" alt="Скульптура" class="swiper-img">
+                        <div class="swiper-caption">
+                            <h3>"Прогулка по Чёрному морю"</h3>
+                            <p>Оптическое стекло, 2012</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80" alt="Скульптура" class="swiper-img">
+                        <div class="swiper-caption">
+                            <h3>"Северный ветер"</h3>
+                            <p>Бронза, гранит, 2015</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://reloft.art/upload/iblock/c88/tezy06az3tb47eaug8vw7qhf9hzxffpn.jpeg" alt="Скульптура" class="swiper-img">
+                        <div class="swiper-caption">
+                            <h3>"Канатоходец"</h3>
+                            <p>Бронза и стекло, 2018</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все работы</button>
+                <button class="filter-btn" data-filter="monumental">Монументальные</button>
+                <button class="filter-btn" data-filter="easel">Станковые</button>
+                <button class="filter-btn" data-filter="glass">Стекло</button>
+                <button class="filter-btn" data-filter="bronze">Бронза</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="monumental bronze">
+                    <img src="https://avatars.mds.yandex.net/get-altay/4120601/2a0000017a43f96c0bc078ec04c7ea80f44b/XXL_height" alt="Памятник Полотнову" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Памятник А.И. Полотнову</h3>
+                        <p>Бронза, гранит, 2018<br>Санкт-Петербург</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="easel glass">
+                    <img src="https://molchanovsky.info/wp-content/uploads/2024/07/15.-progulka-po-chernomu-moryu-500x336.jpg" alt="Прогулка по Чёрному морю" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Прогулка по Чёрному морю</h3>
+                        <p>Оптическое стекло, 2012<br>Частная коллекция</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="monumental bronze">
+                    <img src="https://mispxx-xxi.ru/upload/resize_cache/iblock/5f0/tr3idu2tff8eo000e8mxx11mbeyc24lc/496_496_2/34.-Molchanovskij-A.P.obereg-1996-1997.jpg" alt="Северный ветер" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Северный ветер</h3>
+                        <p>Бронза, гранит, 2015<br>Никольск</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="easel glass bronze">
+                    <img src="https://reloft.art/upload/iblock/c88/tezy06az3tb47eaug8vw7qhf9hzxffpn.jpeg" alt="Канатоходец" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Канатоходец</h3>
+                        <p>Бронза и стекло, 2018<br>27.5 см</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="easel glass">
+                    <img src="https://oms.ru/images/authors/Molchanovsky/21.jpg" alt="Парадный портрет госпожи Гибель" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Парадный портрет госпожи Гибель</h3>
+                        <p>Стекло и металл, 2019<br>Экспериментальная работа</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="monumental bronze">
+                    <img src="https://oms.ru/images/authors/Molchanovsky/12.jpg" alt="Личность планетарного масштаба" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Личность планетарного масштаба</h3>
+                        <p>Бронза, 2016<br>2.4 м</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Section -->
+    <section class="studio" id="studio">
+        <div class="container">
+            <h2 class="section-title">Студия Молчановский</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Творческий тандем</h3>
+                    <p>Студия Андрея Молчановского - это семейное предприятие, где вместе с художником работает его сын, Иван Молчановский, выпускник Строгановки. Вместе они создают уникальные произведения, сочетающие классические традиции и современные технологии.</p>
+                    <p>Философия студии - создание уникальных произведений искусства, где каждая работа существует в единственном экземпляре. Мы отвергаем массовое производство в пользу индивидуального подхода и глубокого осмысления материала.</p>
+                    <p>Наш процесс работы - это синтез ручного труда и современных технологий. От первых эскизов до финальной установки - каждый этап выполняется с вниманием к деталям и уважением к материалу.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://molchanovsky.info/wp-content/themes/sculptura/images/polotnov-proczess.jpg" alt="Студия Молчановский">
+                </div>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h4>Концепция</h4>
+                    <p>Разработка идеи, эскизы, поиск формы и материала</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h4>Макетирование</h4>
+                    <p>Создание 3D-модели и макета будущей скульптуры</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h4>Реализация</h4>
+                    <p>Работа с материалом: литье, резка, шлифовка</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Установка</h4>
+                    <p>Доставка и монтаж работы на месте</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions Section -->
+    <section class="exhibitions" id="exhibitions">
+        <div class="container">
+            <h2 class="section-title">Выставки и проекты</h2>
+            
+            <div class="exhibitions-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>Персональная выставка "Материя и свет"</h3>
+                        <p>Государственный Русский музей, Санкт-Петербург</p>
+                        <p>Экспозиция, посвященная 15-летию творческой деятельности, представила более 40 работ в стекле и бронзе.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Международный симпозиум скульпторов</h3>
+                        <p>Цюрих, Швейцария</p>
+                        <p>Участие в создании коллективной работы "Диалог культур" для городского парка.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h3>Венецианская биеннале</h3>
+                        <p>Венеция, Италия</p>
+                        <p>Представление инсталляции "Прозрачность времени" в российском павильоне.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>Групповая выставка "Современная русская скульптура"</h3>
+                        <p>Государственная Третьяковская галерея, Москва</p>
+                        <p>Участие с работой "Прогулка по Чёрному морю".</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h3>Персональная выставка "Форма и содержание"</h3>
+                        <p>Центральный дом художника, Москва</p>
+                        <p>Первая персональная выставка, представившая ранний период творчества.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <p>Для заказа скульптуры, сотрудничества или получения дополнительной информации:</p>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Адрес студии</h4>
+                            <p>Москва, ул. Мастеровая, д. 15</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+7 (495) 123-45-67</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>studio@molchanovsky.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Часы работы</h4>
+                            <p>Пн-Пт: 10:00 - 18:00<br>Сб: 11:00 - 16:00<br>Вс: выходной</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Форма обратной связи</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <select id="subject">
+                                <option value="order">Заказ скульптуры</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="exhibition">Выставки</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Молчановский</h4>
+                    <p>Современная скульптура в бронзе, стекле и камне. Авторские работы Андрея Молчановского.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">О скульпторе</a></li>
+                        <li><a href="#portfolio">Портфолио</a></li>
+                        <li><a href="#studio">Студия</a></li>
+                        <li><a href="#exhibitions">Выставки</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>Москва, ул. Мастеровая, д. 15</p>
+                    <p>+7 (495) 123-45-67</p>
+                    <p>studio@molchanovsky.ru</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Подписаться</h4>
+                    <p>Будьте в курсе новых работ и выставок</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Студия Андрея Молчановского. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 100);
+        });
+        
+        // Portfolio filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                
+                if (name && email) {
+                    // In a real scenario, you would send the form data to a server
+                    alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+                    contactForm.reset();
+                } else {
+                    alert('Пожалуйста, заполните обязательные поля.');
+                }
+            });
+        }
+        
+        // Timeline animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimeline() {
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                
+                if (itemTop < triggerBottom) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initial check
+        checkTimeline();
+        // Check on scroll
+        window.addEventListener('scroll', checkTimeline);
+        
+        // Set initial styles for timeline items
+        timelineItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+    </script>
+</body>
+</html>
